@@ -1,0 +1,219 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 6,
+    "pending": 1,
+    "failures": 0,
+    "start": "2020-06-28T09:16:43.039Z",
+    "end": "2020-06-28T09:17:17.836Z",
+    "duration": 34797,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 14.285714285714285,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "fe7a5618-9b2a-4798-a386-adab7a7c312b",
+      "title": "",
+      "fullFile": "cypress\\integration\\ecommerce\\users\\login-spec.js",
+      "file": "cypress\\integration\\ecommerce\\users\\login-spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fc7cce1e-0b14-44dc-acb5-6556591d0930",
+          "title": "User Login Feature",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify user is navigated to login page",
+              "fullTitle": "User Login Feature Verify user is navigated to login page",
+              "timedOut": null,
+              "duration": 5646,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "page.validateElements();",
+              "err": {},
+              "uuid": "b905a6bb-c9f6-4228-a53b-d1706002a183",
+              "parentUUID": "fc7cce1e-0b14-44dc-acb5-6556591d0930",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify user cannot login with blank email and password",
+              "fullTitle": "User Login Feature Verify user cannot login with blank email and password",
+              "timedOut": null,
+              "duration": 4310,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "page.submitLogin();\ncy.get(\"#Email-error\").should(\"be.visible\").and(\"contain.text\", \"Please enter your email\");",
+              "err": {},
+              "uuid": "e90bf7c5-1995-449e-b892-a8c4574f2ce5",
+              "parentUUID": "fc7cce1e-0b14-44dc-acb5-6556591d0930",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify user cannot login with invalid email and valid password",
+              "fullTitle": "User Login Feature Verify user cannot login with invalid email and valid password",
+              "timedOut": null,
+              "duration": 6512,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"users.json\").as(\"data\").then(function (data) {\n  page.typeEmail(data.login.invalidEmail);\n  page.typePassword(data.login.password);\n  page.submitLogin();\n});\ncy.get(\"div[class = 'message-error validation-summary-errors']\").should(\"be.visible\").and(\"contain.text\", \"Login was unsuccessful. Please correct the errors and try again.\");\ncy.get(\"div[class = 'message-error validation-summary-errors'] > ul > li\").should(\"have.text\", \"No customer account found\");",
+              "err": {},
+              "uuid": "74d334bd-6fa0-4b87-a068-cbb98a050b16",
+              "parentUUID": "fc7cce1e-0b14-44dc-acb5-6556591d0930",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify user cannot login with valid email and blank password",
+              "fullTitle": "User Login Feature Verify user cannot login with valid email and blank password",
+              "timedOut": null,
+              "duration": 4806,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"users.json\").as(\"data\").then(function (data) {\n  page.typeEmail(data.login.email);\n  page.submitLogin();\n});\ncy.get(\"div[class = 'message-error validation-summary-errors']\").should(\"be.visible\").and(\"contain.text\", \"Login was unsuccessful. Please correct the errors and try again.\");\ncy.get(\"div[class = 'message-error validation-summary-errors'] > ul > li\").should(\"have.text\", \"The credentials provided are incorrect\");",
+              "err": {},
+              "uuid": "47ae69fa-57b4-4cab-9f08-85bd607040d4",
+              "parentUUID": "fc7cce1e-0b14-44dc-acb5-6556591d0930",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify user cannot login with valid email and invalid password",
+              "fullTitle": "User Login Feature Verify user cannot login with valid email and invalid password",
+              "timedOut": null,
+              "duration": 3497,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"users.json\").as(\"data\").then(function (data) {\n  page.typeEmail(data.login.email);\n  page.typePassword(data.login.invalidPassword);\n  page.submitLogin();\n});\ncy.get(\"div[class = 'message-error validation-summary-errors']\").should(\"be.visible\").and(\"contain.text\", \"Login was unsuccessful. Please correct the errors and try again.\");\ncy.get(\"div[class = 'message-error validation-summary-errors'] > ul > li\").should(\"have.text\", \"The credentials provided are incorrect\");",
+              "err": {},
+              "uuid": "01e503b4-ed55-4f56-afa2-45ae9dc6dc6f",
+              "parentUUID": "fc7cce1e-0b14-44dc-acb5-6556591d0930",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify user cannot login with invalid email and password",
+              "fullTitle": "User Login Feature Verify user cannot login with invalid email and password",
+              "timedOut": null,
+              "duration": 5039,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"users.json\").as(\"data\").then(function (data) {\n  page.typeEmail(data.login.invalidEmail);\n  page.typePassword(data.login.invalidPassword);\n  page.submitLogin();\n});\ncy.get(\"div[class = 'message-error validation-summary-errors'] > ul > li\").should(\"have.text\", \"No customer account found\");",
+              "err": {},
+              "uuid": "0c77f1c0-b4ca-48e1-9557-40caa64d6c56",
+              "parentUUID": "fc7cce1e-0b14-44dc-acb5-6556591d0930",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify user can successfully login valid email and password",
+              "fullTitle": "User Login Feature Verify user can successfully login valid email and password",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "",
+              "err": {},
+              "uuid": "e9b3fe2f-45df-4d96-bc4c-3b42a4d0aef0",
+              "parentUUID": "fc7cce1e-0b14-44dc-acb5-6556591d0930",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b905a6bb-c9f6-4228-a53b-d1706002a183",
+            "e90bf7c5-1995-449e-b892-a8c4574f2ce5",
+            "74d334bd-6fa0-4b87-a068-cbb98a050b16",
+            "47ae69fa-57b4-4cab-9f08-85bd607040d4",
+            "01e503b4-ed55-4f56-afa2-45ae9dc6dc6f",
+            "0c77f1c0-b4ca-48e1-9557-40caa64d6c56"
+          ],
+          "failures": [],
+          "pending": [
+            "e9b3fe2f-45df-4d96-bc4c-3b42a4d0aef0"
+          ],
+          "skipped": [],
+          "duration": 29810,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "4.1.0"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "register": {
+      "firstName": "Bilal",
+      "lastName": "Ahmed",
+      "companyName": "Mobile Horizon",
+      "existingEmmail": "user.a1@yopmail.com",
+      "email": "user.a2@yopmail.com",
+      "password": "@Pass123",
+      "confirmPassword": "@Pass123",
+      "confirmPass": "@Pass321"
+    },
+    
+  "login": {
+    "email": "user.a1@yopmail.com",
+    "password": "@Pass123",
+    "invalidEmail": "invalidEmail@yopmail.com",
+    "invalidPassword": "invalidPassword"
+    
+  }
+}

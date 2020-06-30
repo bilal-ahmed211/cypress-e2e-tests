@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 4,
+    "pending": 1,
+    "failures": 0,
+    "start": "2020-06-28T09:17:26.153Z",
+    "end": "2020-06-28T09:17:46.615Z",
+    "duration": 20462,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 20,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3457a0be-c9ee-4b0b-a3af-09e3c18cb984",
+      "title": "",
+      "fullFile": "cypress\\integration\\ecommerce\\users\\registration-spec.js",
+      "file": "cypress\\integration\\ecommerce\\users\\registration-spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d1493dac-a21f-4fd0-aa0f-a3935ebd1c0c",
+          "title": "User Registration Feature",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "validate user is navigated to register page",
+              "fullTitle": "User Registration Feature validate user is navigated to register page",
+              "timedOut": null,
+              "duration": 3521,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"h1\").should(\"have.text\", \"Register\");\ncy.get(\"#register-button\").should(\"be.visible\").and(\"have.value\", \"Register\");",
+              "err": {},
+              "uuid": "23496af0-4a3c-45cb-a4c8-2252f03548d5",
+              "parentUUID": "d1493dac-a21f-4fd0-aa0f-a3935ebd1c0c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "validate user cannot register without filling data in mandatory fields",
+              "fullTitle": "User Registration Feature validate user cannot register without filling data in mandatory fields",
+              "timedOut": null,
+              "duration": 2331,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "page.submitRegistrationForm();\npage.errorMessagesValidation();",
+              "err": {},
+              "uuid": "a9350d58-d355-4057-981f-e5750b8f62fa",
+              "parentUUID": "d1493dac-a21f-4fd0-aa0f-a3935ebd1c0c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "validate error message when password & confirm password does not match",
+              "fullTitle": "User Registration Feature validate error message when password & confirm password does not match",
+              "timedOut": null,
+              "duration": 5956,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"users\").as(\"user\").then(function (user) {\n  page.fillPersonalInfo(user.register.firstName, user.register.lastName, user.register.email);\n  page.fillCompanyName(user.register.companyName);\n  page.fillPassword(user.register.password, user.register.confirmPass);\n  page.submitRegistrationForm();\n  cy.get(\"#ConfirmPassword-error\").should(\"be.visible\").and(\"contain.text\", \"The password and confirmation password do not match.\");\n});",
+              "err": {},
+              "uuid": "c643265c-1e9f-41ef-b45e-3088ac0900a1",
+              "parentUUID": "d1493dac-a21f-4fd0-aa0f-a3935ebd1c0c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "validate user cannot register with existing email",
+              "fullTitle": "User Registration Feature validate user cannot register with existing email",
+              "timedOut": null,
+              "duration": 6063,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"users\").as(\"user\").then(function (user) {\n  page.fillPersonalInfo(user.register.firstName, user.register.lastName, user.register.existingEmmail);\n  page.fillCompanyName(user.register.companyName);\n  page.fillPassword(user.register.password, user.register.confirmPassword);\n  page.submitRegistrationForm();\n  cy.get(\"div[class='message-error validation-summary-errors'] > ul > li\").should(\"be.visible\").and(\"contain.text\", \"The specified email already exists\");\n});",
+              "err": {},
+              "uuid": "a5e3fa81-4000-471b-a22d-f40886a761cc",
+              "parentUUID": "d1493dac-a21f-4fd0-aa0f-a3935ebd1c0c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "validate user can register an account",
+              "fullTitle": "User Registration Feature validate user can register an account",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "",
+              "err": {},
+              "uuid": "5e57e688-6a0c-420d-a6fd-0aa3d1aa91b3",
+              "parentUUID": "d1493dac-a21f-4fd0-aa0f-a3935ebd1c0c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "23496af0-4a3c-45cb-a4c8-2252f03548d5",
+            "a9350d58-d355-4057-981f-e5750b8f62fa",
+            "c643265c-1e9f-41ef-b45e-3088ac0900a1",
+            "a5e3fa81-4000-471b-a22d-f40886a761cc"
+          ],
+          "failures": [],
+          "pending": [
+            "5e57e688-6a0c-420d-a6fd-0aa3d1aa91b3"
+          ],
+          "skipped": [],
+          "duration": 17871,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "4.1.0"
+    }
+  }
+}
