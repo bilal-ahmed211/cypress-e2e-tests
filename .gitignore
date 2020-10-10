@@ -1,2 +1,6 @@
 node_modules
-*report.html
+cypress/logs
+cypress/reports
+cypress/videos
+allure-report
+allure-results

@@ -21,7 +21,7 @@ describe('User Login Feature', () => {
             page.submitLogin();
         });
         cy.get("div[class = 'message-error validation-summary-errors']").should("be.visible").and("contain.text", "Login was unsuccessful. Please correct the errors and try again.");
-        cy.get("div[class = 'message-error validation-summary-errors'] > ul > li").should("have.text", "abc");
+        cy.get("div[class = 'message-error validation-summary-errors'] > ul > li").should("have.text", "No customer account found");
     });
     it('Verify user cannot login with valid email and blank password', () => {
         cy.fixture("users.json").as("data").then(data => {
@@ -29,7 +29,7 @@ describe('User Login Feature', () => {
             page.submitLogin();
         });
         cy.get("div[class = 'message-error validation-summary-errors']").should("be.visible").and("contain.text", "Login was unsuccessful. Please correct the errors and try again.");
-        cy.get("div[class = 'message-error validation-summary-errors'] > ul > li").should("have.text", "The credentials provided are incorrect");
+        cy.get("div[class = 'message-error validation-summary-errors'] > ul > li").should("have.text", "No customer account found");
     });
     it('Verify user cannot login with valid email and invalid password', () => {
         cy.fixture("users.json").as("data").then(data => {
